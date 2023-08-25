@@ -1,0 +1,12 @@
+   type Request {
+       File multipart.File `form:"file"`
+   }
+
+   type Response {
+       Message string `json:"message"`
+   }
+
+   service demo-api {
+       @handler DemoHandler
+       post /upload(Request) returns (Response)
+   }

@@ -1,0 +1,27 @@
+syntax = "v1"
+
+info (
+	title:   "mikael"
+	desc:    "演示如何编写 api 文件"
+	author:  "keson.an"
+	date:    "2023 年 8 月 22 日"
+	version: "v1"
+)
+
+type (
+	UserInfoReq {
+		UserId int64 `json:"UserId"`
+	}
+	UserInfoResp {
+		UserId   int64  `json:"UserId"`
+		Nickname string `json:"nickname"`
+	}
+)
+
+service user-api {
+	@doc "获取用户信息"
+
+	// 定义没有请求体和响应体的接口，如 ping
+	@handler userInfo
+	post /user/info (UserInfoReq) returns (UserInfoResp)
+}

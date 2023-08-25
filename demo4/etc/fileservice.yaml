@@ -1,0 +1,5 @@
+Name: FileService
+Host: 127.0.0.1
+Port: 8888
+#新增大小限制
+MaxBytes: 1073741824

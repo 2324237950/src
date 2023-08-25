@@ -1,0 +1,19 @@
+syntax = "v1"
+
+type UploadResponse {
+	Code int `json:"code"`
+}
+type DownloadRequest {
+	File string `path:"file"`
+}
+
+service FileService {
+	@handler DownloadHandler
+	get /static/:file(DownloadRequest)
+
+	@handler UploadHandler
+	post /upload returns  (UploadResponse)
+	
+}
+// @handler loginHandler
+// post /login/:username,password()
